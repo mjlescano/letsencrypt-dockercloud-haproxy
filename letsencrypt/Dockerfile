@@ -1,13 +1,9 @@
-FROM alpine:edge
+FROM certbot/certbot:v0.12.0
 
 RUN apk add --update \
 		bash \
-		certbot \
 		tini \
 	&& rm -rf /var/cache/apk/*
-
-EXPOSE 80
-VOLUME /etc/letsencrypt
 
 ENV VIRTUAL_HOST="*/.well-known/acme-challenge/*"
 ENV VIRTUAL_HOST_WEIGHT="999"
