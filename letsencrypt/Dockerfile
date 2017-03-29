@@ -5,6 +5,8 @@ RUN apk add --update \
 		tini \
 	&& rm -rf /var/cache/apk/*
 
+VOLUME /etc/letsencrypt
+
 ENV VIRTUAL_HOST="*/.well-known/acme-challenge/*"
 ENV VIRTUAL_HOST_WEIGHT="999"
 ENV PATH="/opt/letsencrypt/bin:$PATH"
